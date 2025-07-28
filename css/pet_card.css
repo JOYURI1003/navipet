@@ -1,0 +1,142 @@
+@charset "utf-8";
+.form-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.form-header .back-button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.form-header h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.pet-info {
+  text-align: center;
+  padding: 0 16px 50px 16px;
+}
+
+.pet-icon {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.pet-icon img {
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+}
+.pet-info h2 {
+  margin: 10px 0 4px;
+  font-size: 1.8rem;
+}
+
+.pet-info p {
+  color: var(--color-sub);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.pet-form {
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+}
+
+.pet-form > label {
+  font-size: 1.6rem;
+  color: var(--color-black);
+  padding-top: 24px;
+}
+
+.pet-form input[type="text"],
+.pet-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--color-gray-light);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.radio-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.4rem;
+}
+/* 숨기기 */
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+/* 라벨 자체를 버튼처럼 보이게 */
+.custom-radio span {
+  background: var(--color-white);
+  color: var(--color-blue-dark);
+  border: 1px solid var(--color-gray-light);
+
+  padding: 8px 14px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 1.4rem;
+
+  transition: 0.2s;
+  user-select: none;
+}
+.custom-radio i {
+  color: var(--color-blue-dark);
+  font-size: 1.6rem;
+  display: inline-block;
+  padding-right: 5px;
+}
+/* 라벨 간 간격 */
+
+.radio-group .custom-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 선택된 라디오에 스타일 적용 */
+.custom-radio input[type="radio"]:checked + span {
+  background: var(--color-blue-light);
+  color: var(--color-white);
+}
+.custom-radio input[type="radio"]:checked + span > i {
+  color: var(--color-white);
+}
+.weight-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.weight-input input {
+  flex: 1;
+}
+
+.weight-input span {
+  font-size: 14px;
+  color: var(--color-sub);
+}

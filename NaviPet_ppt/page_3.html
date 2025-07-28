@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NaviPet 앱 개발 배경 및 목표</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 840px; font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F7F7F7;}
+        .slide-container {
+            width: 1280px;
+            min-height: 840px;
+            position: relative;
+            
+            background-color: white;
+        }
+        .title-bar {
+            background: linear-gradient(90deg, #5980F4 0%, #5980F4 70%, rgba(255, 255, 255, 0) 100%);
+        }
+        .stat-card {
+            background-color: #FFFFFF;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4DD0E1;
+        }
+        .goal-item {
+            border-left: 4px solid #5980F4;
+            background-color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .goal-item:hover, .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .chart-container {
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container shadow-xl mx-auto p-10">
+<!-- Title Section -->
+<div class="title-bar py-4 px-8 rounded-lg mb-8">
+<h1 class="text-4xl font-bold text-white">NaviPet 앱 개발 배경 및 목표</h1>
+<p class="text-white text-xl mt-2">반려동물 보호자의 정보 접근성 향상과 병원 선택 과정 개선</p>
+</div>
+<!-- Main Content - Two Column Layout -->
+<div class="flex gap-8">
+<!-- Left Column - Development Background -->
+<div class="w-1/2 bg-gray-50 p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="bg-[#4DD0E1] rounded-full p-3 mr-3">
+<i class="fas fa-chart-line text-xl text-white"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">개발 배경</h2>
+</div>
+<!-- Key Statistics -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="stat-card p-4 rounded-lg shadow-md">
+<p class="text-gray-600 mb-1">반려동물 양육 인구</p>
+<p class="text-3xl font-bold text-[#5980F4]">1,300만 명</p>
+</div>
+<div class="stat-card p-4 rounded-lg shadow-md">
+<p class="text-gray-600 mb-1">반려동물 양육 가구 비율</p>
+<p class="text-3xl font-bold text-[#5980F4]">25.4%</p>
+<p class="text-sm text-gray-500">2022년 기준 602만 가구</p>
+</div>
+</div>
+<!-- Pet Market Growth Chart -->
+<div class="mb-4">
+<p class="text-lg font-medium text-gray-700 mb-2">반려동물 시장 성장 전망</p>
+<div class="chart-container" id="chart"></div>
+</div>
+<!-- Additional Background Info -->
+<div class="bg-white p-4 rounded-lg shadow-md">
+<p class="text-gray-700">KB금융지주 경영연구소의 2023년 보고서에 따르면, <span class="font-bold text-[#5980F4]">반려 가구의 86.4%</span>가 반려동물 건강관리에 관심을 보이며, 특히 &#39;건강 검진 등 관리 방법&#39;과 &#39;질병 진단 후 케어 방법&#39;에 대한 정보 요구가 매우 높습니다.</p>
+</div>
+</div>
+<!-- Right Column - App Goals -->
+<div class="w-1/2 bg-gray-50 p-6 rounded-lg">
+<div class="flex items-center mb-4">
+<div class="bg-[#5980F4] rounded-full p-3 mr-3">
+<i class="fas fa-bullseye text-xl text-white"></i>
+</div>
+<h2 class="text-2xl font-bold text-gray-800">앱 개발 목표</h2>
+</div>
+<div class="space-y-4">
+<div class="goal-item p-4 rounded-lg shadow-md">
+<div class="flex items-start">
+<i class="fas fa-map-marked-alt text-[#4DD0E1] mr-3 mt-1 text-xl"></i>
+<div>
+<h3 class="font-medium text-gray-800">위치 기반 통합 검색</h3>
+<p class="text-gray-600">지도와 연동된 직관적 검색으로 사용자 주변 동물병원을 쉽게 찾을 수 있도록 지원</p>
+</div>
+</div>
+</div>
+<div class="goal-item p-4 rounded-lg shadow-md">
+<div class="flex items-start">
+<i class="fas fa-info-circle text-[#4DD0E1] mr-3 mt-1 text-xl"></i>
+<div>
+<h3 class="font-medium text-gray-800">투명한 정보 제공</h3>
+<p class="text-gray-600">운영 시간, 진료 과목, 사용자 후기 등 상세하고 투명한 정보 제공</p>
+</div>
+</div>
+</div>
+<div class="goal-item p-4 rounded-lg shadow-md">
+<div class="flex items-start">
+<i class="fas fa-calendar-check text-[#4DD0E1] mr-3 mt-1 text-xl"></i>
+<div>
+<h3 class="font-medium text-gray-800">간편한 예약 및 관리</h3>
+<p class="text-gray-600">통합된 예약 시스템으로 전화 없이 편리하게 진료 예약 및 관리 가능</p>
+</div>
+</div>
+</div>
+<div class="goal-item p-4 rounded-lg shadow-md">
+<div class="flex items-start">
+<i class="fas fa-heart text-[#4DD0E1] mr-3 mt-1 text-xl"></i>
+<div>
+<h3 class="font-medium text-gray-800">반려동물 건강 관리 최적화</h3>
+<p class="text-gray-600">반려동물의 건강을 더욱 편리하고 체계적으로 관리할 수 있는 최적의 환경 제공</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Slide Number -->
+<div class="absolute bottom-4 right-10">
+<span class="text-gray-500">3 / 12</span>
+</div>
+</div>
+<script>
+        // Chart data based on document
+        const data = [
+            {year: "2022", value: 8.5},
+            {year: "2032", value: 21}
+        ];
+
+        // Set up chart dimensions
+        const margin = {top: 20, right: 30, bottom: 40, left: 50};
+        const width = 500 - margin.left - margin.right;
+        const height = 200 - margin.top - margin.bottom;
+
+        // Create SVG container
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        // X scale
+        const x = d3.scaleBand()
+            .domain(data.map(d => d.year))
+            .range([0, width])
+            .padding(0.3);
+
+        // Y scale
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.value) * 1.1])
+            .range([height, 0]);
+
+        // Add X axis
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .style("font-size", "12px");
+
+        // Add Y axis
+        svg.append("g")
+            .call(d3.axisLeft(y)
+                .ticks(5)
+                .tickFormat(d => d + "조원"))
+            .selectAll("text")
+            .style("font-size", "12px");
+
+        // Add bars
+        svg.selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", d => x(d.year))
+            .attr("y", d => y(d.value))
+            .attr("width", x.bandwidth())
+            .attr("height", d => height - y(d.value))
+            .attr("fill", (d, i) => i === 0 ? "#4DD0E1" : "#5980F4");
+
+        // Add value labels
+        svg.selectAll(".text")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .attr("x", d => x(d.year) + x.bandwidth() / 2)
+            .attr("y", d => y(d.value) - 5)
+            .attr("text-anchor", "middle")
+            .text(d => d.value + "조원")
+            .style("font-size", "12px")
+            .style("font-weight", "bold");
+
+        // Add title
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", -5)
+            .attr("text-anchor", "middle")
+            .style("font-size", "14px")
+            .style("font-weight", "bold")
+            .text("국내 반려동물 시장 규모 전망");
+    </script>
+</body></html>

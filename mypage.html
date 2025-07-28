@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaviPet</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
+    <!-- slick JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      defer
+    ></script>
+    <script src="js/event.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/mypage.css" />
+
+</head>
+<body>
+    <!-- 헤더 -->
+        <!-- 맨위로 가기 버튼 -->
+    <button id="goTopBtn" title="맨 위로 이동">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+   <div class="header">
+      <button class="back-button" onclick="location.href='main.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h1>마이페이지</h1>
+      <button><i class="fas fa-bars"></i></button>
+    </div>
+
+    <!-- 프로필 -->
+    <section class="profile">
+      <img src="image/my.jpg" alt="프로필" class="avatar"/>
+      <div class="info">
+        <strong>김반려</strong>
+        <p>petlover@email.com</p>
+      </div>
+    </section>
+<div class="bg">
+    <!-- 반려동물 정보 -->
+      <section class="map-section">
+        <div class="community-header">
+          <h2>반려동물</h2>
+        <a href="pet_card.html" class="add-btn">+ 추가</a>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-thumb">
+          <img src="image/dog1.jpg" alt="">
+        </div>
+        <div class="pet-info">
+          <strong>몽이 <span>골든 리트리버</span></strong> 
+        
+          <p>종류: 개 ♂ 수컷</p>
+          <p>나이: 3세</p>
+        </div>
+        <div class="more">⋮</div>
+      </div>
+
+      <div class="pet-card">
+        <div class="pet-thumb"><img src="image/cat2.jpg" alt=""></div>
+        <div class="pet-info">
+          <strong>나비 <span>코리안쇼트헤어</span></strong>
+          <p>종류: 고양이 ♀ 암컷</p>
+          <p>나이: 2세</p>
+        </div>
+        <div class="more">⋮</div>
+      </div>
+    </section>
+
+    <!-- 병원 정보 -->
+    <section class="hospitals map-section">
+     <div class="community-header">
+          <h2>병원정보</h2>
+      </div>
+
+
+      <div class="hospital-card">
+        <h3><i class="fas fa-heart i_style_01"></i>단골병원</h3>
+        <p><strong>사랑동물병원</strong></p>
+        <p>서울시 강남구 테헤란로 123</p>
+        <p>02-1234-5678</p>
+      </div>
+
+      <div class="hospital-card">
+        <h3><i class="fas fa-clock i_style_02"></i>최근 방문 병원</h3>
+        <p><strong>24시 응급동물병원</strong>
+        <span>2025.01.15</span></p>
+       
+
+        <p><strong>펫케어동물병원</strong>
+         <span>2025.01.15</span></p>
+     
+      </div>
+    </section>
+
+
+  <div class="user-dashboard">
+
+  <!-- 수의사 상담내역 -->
+  <section class="consultation-history  map-section">
+     <div class="community-header">
+          <h2>수의사 상담내역</h2>
+          <a href="#" class="view-all">전체보기</a>
+      </div>
+
+    
+    
+    <ul class="consultation-list">
+      <li class="consultation-item">
+        <img src="image/vet1.jpg" alt="김수의 원장">
+        <div class="details">
+          <strong>김수의 원장</strong>
+          <p>웅이 - 예방접종 상담</p>
+          <span class="hospital">사랑동물병원</span>
+        </div>
+        <time>2025.01.20</time>
+      </li>
+      <li class="consultation-item">
+        <img src="image/vet2.jpg" alt="이펫케어 원장">
+        <div class="details">
+          <strong>이펫케어 원장</strong>
+          <p>나비 - 건강검진 결과</p>
+          <span class="hospital">펫케어동물병원</span>
+        </div>
+        <time>2025.01.15</time>
+      </li>
+      <li class="consultation-item">
+        <img src="image/vet3.jpg" alt="박동물 원장">
+        <div class="details">
+          <strong>박동물 원장</strong>
+          <p>웅이 - 피부 트러블 상담</p>
+          <span class="hospital">24시 응급동물병원</span>
+        </div>
+        <time>2025.01.10</time>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 주문 현황 -->
+  <section class="order-status map-section">
+     <div class="community-header">
+          <h2>주문 현황</h2>
+          <a href="#" class="view-all">전체보기</a>
+      </div>
+
+    <ul class="status-list">
+      <li><span>결제대기</span><strong>2</strong></li>
+      <li><span>배송준비</span><strong>1</strong></li>
+      <li><span>배송중</span><strong>3</strong></li>
+      <li><span>배송완료</span><strong>18</strong></li>
+    </ul>
+  </section>
+
+  <!-- 기타 메뉴 -->
+  <nav class="user-menu  map-section">
+    <ul>
+      <li><a href="#"><i class="fas fa-heart"></i>찜한 상품</a></li>
+      <li><a href="#"><i class="fas fa-pen-to-square"></i>리뷰관리</a></li>
+      <li><a href="#"><i class="fas fa-database"></i>적립금</a></li>
+      <li><a href="#"><i class="fas fa-clock"></i>알림 설정</a></li>
+      <li><a href="#"><i class="fas fa-shield-halved"></i></i>개인정보 설정</a></li>
+      <li><a href="#"><i class="fas fa-comment"></i>고객센터</a></li>
+      <li><a href="#"><i class="fas fa-pen-nib"></i>이용약관</a></li>
+    </ul>
+  </nav>
+</div>
+</div>
+      <footer>
+      <div class="footer">
+        <h3>JOYURI - WebDesign Portfolio</h3>
+        <address>
+          <span>hecia@naver.com</span>
+        </address>
+        <small>© 2025 웹디자인 포트폴리오. All rights reserved</small>
+      </div>
+    </footer>
+      <div class="bottom-nav">
+      <a href="main.html" >
+        <i class="fas fa-home"><span class="blind">홈</span></i>
+      </a>
+      <a href="search_map.html">
+        <i class="fas fa-map-marker-alt"><span class="blind">위치찾기</span></i>
+      </a>
+      <a href="community.html">
+        <i class="fas fa-dog"><span class="blind">커뮤니티</span></i>
+      </a>
+      <a href="mypage.html"  class="active">
+        <i class="fas fa-user"></i><span class="blind">마이페이지</span>
+      </a>
+      </div>
+</body>
+</html>

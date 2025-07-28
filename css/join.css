@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+.signup-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.back-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.signup-header h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-bg);
+  border-radius: 50%;
+
+  overflow: hidden;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-icon img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+}
+.signup-body h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 10px 0 4px;
+}
+
+.signup-body p {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  margin-bottom: 20px;
+}
+
+.signup-form label {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 10px 36px 10px 12px;
+  font-size: 1.4rem;
+  border: 1px solid var(--color-gray-light);
+  background-color: var(--color-bg);
+  border-radius: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-sub);
+  font-size: 16px;
+}
+
+.signup-form small {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--color-sub);
+  margin-top: 4px;
+}
+
+.checkbox-group {
+  margin: 20px 0;
+  font-size: 13px;
+}
+
+.checkbox-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-sub);
+}
+
+.checkbox-group a {
+  color: var(--color-blue-dark);
+  text-decoration: underline;
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.signup-btn {
+  width: 100%;
+  background: var(--color-blue-dark);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.divider {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-gray-light);
+  margin: 20px 0 10px;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid var(--color-bg);
+  background: white;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.google {
+  color: var(--color-sub);
+}
+
+.apple {
+  color: #000;
+  font-weight: bold;
+}
+
+.login-link a {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  margin-top: 20px;
+}

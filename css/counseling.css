@@ -1,0 +1,121 @@
+@charset "utf-8";
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+.page-header button {
+  background: none;
+  border: none;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.form-section {
+  padding: 24px 16px;
+}
+
+.form-section h2 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  color: var(--color-sub);
+  margin-bottom: 20px;
+}
+
+.consult-form label {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+.consult-form input,
+.consult-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 4px;
+  font-size: 1.4rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 6px;
+  background: var(--color-white);
+}
+
+.consult-form textarea {
+  resize: none;
+  height: 80px;
+}
+.consult-form span {
+  font-size: 1.2rem;
+  color: var(--color-sub);
+}
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel {
+  background: var(--color-gray-light);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  color: var(--color-sub);
+  font-size: 1.6rem;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.submit {
+  background: var(--color-blue-light);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  flex: 1;
+}
+
+.info-box {
+  background: #f1f5f9;
+  border-left: 4px solid var(--color-blue-light);
+  padding: 16px;
+  margin: 16px;
+  border-radius: 6px;
+}
+.info-box strong {
+  font-size: 1.8rem;
+  display: block;
+  padding-bottom: 5px;
+}
+.info-box p {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+.faq-section {
+  padding: 16px;
+}
+.faq-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.faq-section ul {
+  list-style: none;
+}
+
+.faq-section li {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+.faq-section strong {
+  display: block;
+  color: var(--color-black);
+}

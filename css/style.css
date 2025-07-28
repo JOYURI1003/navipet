@@ -1,0 +1,706 @@
+@charset "utf-8";
+
+@import url("https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css");
+
+body {
+  margin: 0;
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Arial", sans-serif;
+  color: var(--color-black);
+}
+:root {
+  --color-blue-light: #5980f4;
+  --color-cyan: #4dd0e1;
+  --color-blue-dark: #3655a7;
+  --color-yellow: #f7df65;
+  --color-red: #f06068;
+  --color-pink: #f7b5cc;
+  --color-black: #181719;
+  --color-sub: #59595c;
+  --color-gray-light: #e8ebef;
+  --color-bg: #f5f5fa;
+  --color-white: #fff;
+}
+
+.header {
+  padding: 0 16px;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  font-size: 1.8rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.header h1 img {
+  height: 28px;
+}
+
+.gnb {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.gnb > i {
+  font-size: 2rem;
+  margin: 0 3px;
+  color: var(--color-sub);
+}
+.bg {
+  background: var(--color-bg);
+  padding-bottom: 50px;
+}
+.search_wrap {
+  position: absolute;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 20px 16px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+  z-index: 2;
+  top: 50px;
+  left: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.location {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+.location i {
+  font-size: 1.8rem;
+}
+.search-box {
+  display: flex;
+  position: relative;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  padding-left: 6px;
+  height: 42px;
+}
+
+.search-box button {
+  border: none;
+  position: absolute;
+  background: transparent;
+  color: var(--color-blue-light);
+  padding: 6px 12px;
+
+  border-radius: 6px;
+  cursor: pointer;
+  right: 0px;
+  top: 4px;
+}
+.search-flex {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px 12px;
+  display: none;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.search-box_img img {
+  width: 30px;
+}
+.search-flex > .search-box button {
+  right: 30px;
+}
+.search-flex_btn {
+  width: 20px;
+  text-align: center;
+}
+.search-flex_btn i {
+  font-size: 2rem;
+}
+.slider {
+  margin-top: 100px;
+}
+
+.slider img {
+  width: 100%;
+  object-fit: contain;
+}
+.fas {
+  font-size: 2.4rem;
+}
+main {
+  padding: 0 10px;
+  background: var(--color-bg);
+}
+.specialty {
+  background: var();
+}
+
+.specialty h3 {
+  font-size: 2.4rem;
+  padding: 50px 0 12px 0;
+}
+.category {
+  padding: 20px 16px 15px 16px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: var(--color-black);
+  background: var(--color-white);
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+.category > span {
+  display: block;
+  font-size: 1.6rem;
+}
+.category.active i {
+  color: var(--color-white);
+}
+.category.active {
+  color: var(--color-white);
+  background: var(--color-blue-light);
+}
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48%, auto));
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.category i {
+  font-size: 3rem;
+  color: var(--color-blue-dark);
+
+  border-radius: 50px;
+  margin-bottom: 12px;
+}
+.card_style {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  background: var(--color-white);
+  border-radius: 8px;
+}
+.hospital {
+  padding: 10px 0 20px 0;
+}
+
+.hospital:last-child {
+  border-bottom: none;
+}
+
+.hospital-title {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hospital-title > span {
+  font-size: 1.4rem;
+}
+
+.hospital-sub {
+  padding-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hospital-sub p {
+  font-size: 1.4rem;
+  color: #9a9ba0;
+}
+.reservation {
+  display: flex;
+  gap: 10px;
+}
+.reservation > span {
+  font-size: 1.4rem;
+}
+.rese_btn_01 {
+  color: var(--color-blue-dark);
+}
+.rese_btn_02 {
+  color: var(--color-red);
+}
+.link-icon {
+  float: right;
+  color: #9a9ba0;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+/* 수의사 상담 */
+.title {
+  font-size: 2.4rem;
+  color: var(--color-black);
+  padding: 50px 0 12px 0;
+}
+.vet-box {
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  border-radius: 12px;
+}
+.vet-box > a {
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.vet-box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.vet-box .text {
+  flex: 1;
+  font-size: 14px;
+}
+
+.vet-box .text strong {
+  display: block;
+  font-size: 1.8rem;
+  padding-bottom: 6px;
+}
+
+.vet-box .icon {
+  font-size: 18px;
+}
+
+/* 커뮤니티 */
+.community-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-top: 50px;
+}
+
+.community-header h2 {
+  font-size: 2.4rem;
+}
+.community-header > a {
+  color: #888;
+  font-size: 1.4rem;
+}
+
+.community-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-title {
+  font-size: 1.6rem;
+}
+
+.card-tag {
+  font-size: 1.4rem;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.card-tag i {
+  color: var(--color-cyan);
+  font-size: 1.2rem;
+}
+.card-hashtags {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  word-break: keep-all;
+}
+.header span i,
+.header button i {
+  font-size: 2rem;
+  color: var(--color-sub);
+}
+.header button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+.hospital-header {
+  border-radius: 12px;
+  padding: 12px 16px 0 16px;
+}
+
+.hospital-info strong {
+  font-size: 1.8rem;
+}
+
+.hospital-info .specialty {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+.hospital-result {
+  padding-top: 15px;
+}
+.search-box {
+  display: flex;
+  gap: 8px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 8px;
+}
+.near {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.near > span {
+  color: var(--color-sub);
+}
+.search-box button i {
+  color: var(--color-blue-light);
+  font-size: 2.4rem;
+}
+
+.map-section {
+  padding: 0 16px;
+}
+
+.hospital-info {
+  width: 100%;
+}
+
+.marker i {
+  color: var(--color-red);
+  font-size: 30px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.specialty {
+  font-size: 12px;
+  color: var(--color-sub);
+}
+
+.map-placeholder {
+  background: #f1f5f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.buttons button,
+.buttons a {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+
+.info-btn {
+  background: var(--color-white);
+  color: var(--color-sub);
+}
+
+.route-btn {
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+}
+
+.review-btn {
+  background: var(--color-white);
+  color: var(--color-sub);
+}
+
+.bottom-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid var(--color-gray-light);
+  background: rgba(255, 255, 255, 0.7); /* 반투명 배경 */
+  backdrop-filter: blur(10px); /* 배경 블러 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 지원 */
+}
+.bottom-nav a.active i {
+  display: block;
+  color: var(--color-blue-light);
+}
+.bottom-nav a i {
+  color: var(--color-sub);
+}
+#goTopBtn {
+  display: none; /* 처음엔 숨김 */
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 999;
+  font-size: 1.4rem;
+  border: none;
+  background-color: #5980f4b9;
+  color: var(--color-white);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+#goTopBtn:hover {
+  background-color: var(--color-blue-light);
+}
+
+.camera_icon {
+  position: relative;
+  display: flex;
+  padding: 24px 0 16px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera_icon > i {
+  transform: translate(-10px, -20px);
+  font-size: 1.6rem;
+  color: #59595c75;
+}
+
+/*커뮤니티*/
+/* 슬라이드 영역 */
+.carousel {
+  padding: 16px 16px 0 16px;
+}
+
+.carousel-img {
+  background-color: #eee;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  color: #888;
+  font-size: 16px;
+}
+.carousel-img img {
+  width: 100%;
+}
+
+/* 이벤트 */
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.date-box {
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 1.8rem;
+  height: 40px;
+  width: 40px;
+  line-height: 42px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.event-info {
+  flex: 1;
+  margin: 0 12px;
+}
+.event-info strong {
+  font-size: 1.8rem;
+  display: block;
+  padding-bottom: 3px;
+}
+.event-info p {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+
+.event-date {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+
+.share-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.6rem;
+
+  background: var(--color-blue-dark);
+  color: var(--color-white);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 리뷰 */
+.review-list {
+  margin: 16px 0;
+}
+
+.review-card {
+  background: var(--color-white);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-right: 16px;
+  width: 160px; /* 고정 너비 */
+  min-height: 175px;
+  box-sizing: border-box;
+}
+.review-card strong {
+  font-size: 1.8rem;
+}
+.review-card p {
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+.review-card .stars {
+  color: gold;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.stars {
+  color: gold;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+/* 제품 */
+
+.tag {
+  display: inline-block;
+
+  color: #333;
+  font-size: 1.4rem;
+  padding: 2px 6px;
+  margin-bottom: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom-right-radius: 4px;
+  background: rgba(255, 255, 255, 0.3); /* 반투명 배경 */
+  backdrop-filter: blur(10px); /* 배경 블러 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 지원 */
+}
+
+.product-item {
+  padding: 6px 10px;
+}
+.product_summary {
+  font-size: 1.4rem;
+  padding-bottom: 6px;
+  display: block;
+  color: var(--color-sub);
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis; /* 말줄임표 표시 */
+}
+.product-name {
+  font-size: 1.8rem;
+
+  margin-bottom: 12px;
+}
+
+.product-img {
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.price {
+  color: var(--color-black);
+  text-align: right;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+footer {
+  background-color: var(--color-sub);
+  width: 100%;
+}
+.footer {
+  color: #fdfdfb;
+  text-align: center;
+  padding: 30px 0 80px 0;
+}
+.footer h3 {
+  font-size: 2.1rem;
+}
+address > span {
+  display: block;
+  font-size: 1.6rem;
+  padding: 10px 0;
+}
+small {
+  font-size: 1.4rem;
+}

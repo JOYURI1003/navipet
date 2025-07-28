@@ -1,0 +1,108 @@
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaviPet</title>
+    <!-- slick CSS -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
+    <!-- slick JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      defer
+    ></script>
+    <script src="js/event.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/slick-theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+
+
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-header">
+          <div class="login_logo">
+            <img src="image/m_logo.png" alt="" />
+          </div>
+
+          <h2>반려동물을 위한 스마트 병원 찾기</h2>
+          <p>가까운 동물병원을 빠르게 찾고 간편하게 예약하세요</p>
+        </div>
+        <form class="login-form" onsubmit="return validateLogin(event)">
+          <label for="email">아이디</label>
+          <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="text"
+              id="useID"
+              placeholder="길동이 입력하세요"
+              required
+            />
+          </div>
+
+          <label for="password">비밀번호</label>
+          <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password"
+              placeholder="비밀번호는 1234 입니다."
+              required
+            />
+            <i class="fas fa-eye"></i>
+          </div>
+
+          <div class="options">
+            <label><input type="checkbox" />ID저장</label>
+            <div><a href="#" class="use_id">아이디</a><a href="#" class="use_pw">비밀번호 찾기</a></div>
+          </div>
+
+          <button type="submit" class="login-btn">로그인</button>
+        </form>
+
+        <div class="divider">또는</div>
+
+        <div class="social-login">
+          <button class="google">
+            <i class="fab fa-google"></i> Google로 계속하기
+          </button>
+          <button class="apple">
+            <i class="fab fa-apple"></i> Apple로 계속하기
+          </button>
+          <button class="kakao">
+            <i class="fas fa-comment"></i> 카카오로 계속하기
+          </button>
+        </div>
+        <div class="join_go">
+          회원가입 계정이 없으신가요? <a href="Join.html">회원가입</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      function validateLogin(event) {
+        event.preventDefault(); // 기본 제출 방지
+
+        const useID = document.getElementById("useID").value;
+        const password = document.getElementById("password").value;
+
+        if (useID === "길동이" && password === "1234") {
+          // 로그인 성공 시 페이지 이동
+          window.location.href = "main.html";
+        } else {
+          alert("이메일 또는 비밀번호가 올바르지 않습니다");
+        }
+
+        return false; // 폼 제출 방지
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .filter-box {
+        padding: 15px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        background: #f9f9f9;
+      }
+      .filter-group {
+        margin: 10px 0;
+      }
+      #hospital-list .hospital {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#filterBtn").on("click", function () {
+        $(".hospital").hide();
+
+        const keyword = $("#searchKeyword").val().toLowerCase();
+        const selectedAnimals = $(".filter-animal:checked")
+          .map(function () {
+            return $(this).val();
+          })
+          .get();
+
+        const selectedStatus = $(".filter-status:checked").val();
+        const reservableOnly = $("#filter-reservable").is(":checked");
+        const distance = $("#filter-distance").val();
+
+        $(".hospital").each(function () {
+          const $el = $(this);
+          const animal = $el.data("animal");
+          const status = $el.data("status");
+          const reservable = $el.data("reservable");
+          const hospitalDistance = parseInt($el.data("distance"));
+          const name = $el.data("name").toLowerCase();
+
+          let show = true;
+
+          // 🔍 키워드 검색
+          if (keyword && !name.includes(keyword)) show = false;
+
+          // 🐾 동물 필터
+          if (selectedAnimals.length && !selectedAnimals.includes(animal))
+            show = false;
+
+          // 🕐 상태 필터
+          if (selectedStatus !== "any" && status !== selectedStatus)
+            show = false;
+
+          // ✅ 예약 가능
+          if (reservableOnly && !reservable) show = false;
+
+          // 📍 거리
+          if (distance !== "all" && hospitalDistance > parseInt(distance))
+            show = false;
+
+          if (show) $el.show();
+        });
+      });
+    </script>
+  </body>
+</html>

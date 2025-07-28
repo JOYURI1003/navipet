@@ -1,0 +1,240 @@
+@charset "utf-8";
+/* 프로필 */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px;
+}
+.profile .info > strong {
+  font-size: 1.8rem;
+}
+.profile .info > p {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* 반려동물 */
+
+.community-header .add-btn {
+  background-color: var(--color-blue-dark);
+  color: var(--color-white);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.pet-card {
+  display: flex;
+  align-items: flex-start;
+
+  padding: 12px;
+
+  margin-bottom: 12px;
+  position: relative;
+
+  color: var(--color-black);
+  background: var(--color-white);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.pet-thumb {
+  width: 60px;
+  height: 60px;
+  background: #ddd;
+  border-radius: 8px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  margin-right: 12px;
+  overflow: hidden;
+}
+.pet-thumb img {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+}
+.pet-info strong {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 6px;
+}
+.pet-info strong > span {
+  font-size: 1.2rem;
+}
+.pet-info p {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+}
+
+.more {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: var(--color-sub);
+  font-size: 18px;
+}
+
+/* 병원 */
+
+.hospital-card {
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+
+  position: relative;
+  color: var(--color-black);
+  background: var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+.hospital-card i,
+.user-menu ul li i {
+  color: var(--color-sub);
+  font-size: 1.6rem;
+  padding-right: 5px;
+  display: inline-block;
+}
+.hospital-card i.i_style_01 {
+  color: var(--color-red);
+}
+.hospital-card i.i_style_02 {
+  color: var(--color-cyan);
+}
+.hospital-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.hospital-card p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+  color: var(--color-sub);
+}
+.hospital-card p > span {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.view-all {
+  float: right;
+  font-size: 14px;
+  color: #999;
+  text-decoration: none;
+}
+
+.consultation-list,
+.status-list,
+.user-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.consultation-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.consultation-item .details {
+  flex: 1;
+}
+
+.consultation-item .details strong {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.consultation-item .details p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--color-black);
+}
+
+.consultation-item .details .hospital {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  display: block;
+  padding: 5px 0 2px 0;
+}
+
+.consultation-item time {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  white-space: nowrap;
+}
+
+.order-status {
+  margin-top: 24px;
+}
+
+.status-list {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+.status-list li {
+  text-align: center;
+}
+.status-list li strong {
+  text-align: center;
+  color: var(--color-black);
+  font-size: 1.8rem;
+}
+
+.status-list li span {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  margin-bottom: 4px;
+}
+
+.user-menu ul li {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.user-menu ul li a {
+  display: block;
+  padding: 14px 16px;
+  font-size: 1.6rem;
+  color: var(--color-sub);
+  text-decoration: none;
+}

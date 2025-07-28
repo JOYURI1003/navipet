@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaviPet</title>
+    <!-- slick CSS -->
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
+    <!-- slick JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      defer
+    ></script>
+    <script src="js/event.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/slick-theme.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .filter-box {
+        display: none;
+        padding: 15px;
+        margin: 10px 0 15px 0;
+        border: 1px solid var(--color-gray-light);
+        border-radius: 8px;
+      }
+
+      .filter-group label {
+        margin: 10px 0;
+        display: inline-block;
+        font-size: 1.4rem;
+      }
+      .filter-group p {
+        font-size: 1.6rem;
+        padding: 15px 0 2px 0;
+      }
+      .filter-group label > span {
+        font-size: 1.4rem;
+      }
+      /* 숨기기 */
+      .checkbox-btn input,
+      .radio-btn input {
+        display: none;
+      }
+
+      /* 기본 스타일 공통 */
+      .checkbox-btn span,
+      .radio-btn span {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 1px solid var(--color-gray-light);
+        border-radius: 20px;
+        margin: 5px;
+        background-color: var(--color-bg);
+        color: var(--color-sub);
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.2s;
+      }
+
+      /* 선택되었을 때 스타일 (checkbox) */
+      .checkbox-btn input:checked + span {
+        color: var(--color-white);
+        background: var(--color-blue-light);
+      }
+
+      /* 선택되었을 때 스타일 (radio) */
+      .radio-btn input:checked + span {
+        color: var(--color-white);
+        background: var(--color-blue-light);
+      }
+
+      #hospital-list .hospital {
+        padding: 10px;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--color-gray-light);
+      }
+      #filter-distance {
+        width: 100%;
+        height: 32px;
+        font-size: 1.4rem;
+        border: 1px solid var(--color-gray-light);
+      }
+      #filterBtn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        font-size: 1.6rem;
+        margin: 20px 0;
+        padding: 7px 0;
+        background: var(--color-blue-dark);
+        color: var(--color-white);
+        border-radius: 8px;
+        gap: 5px;
+      }
+      #filterBtn i {
+        font-size: 1.6rem;
+        color: var(--color-white);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 맨위로 가기 버튼 -->
+    <button id="goTopBtn" title="맨 위로 이동">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- 상단 -->
+    <header class="header">
+      <h1><img src="image/logo.png" alt="NaviPet_logo" /></h1>
+      <div class="gnb">
+        <span>
+          <a href="login.html"><i class="fa-solid fa-circle-user"></i></a
+        ></span>
+        <button><i class="fas fa-bars"></i></button>
+      </div>
+      <div class="search_wrap">
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i> 현재 위치:
+          <strong>서울시 강남구</strong>
+        </div>
+        <div class="search-box filter-group">
+          <input
+            type="text"
+            id="searchKeyword"
+            placeholder="동물병원 위치 찾기"
+          />
+          <button class="filter_btn">
+            <i class="fas fa-sliders"></i><span class="blind">필터검색</span>
+          </button>
+        </div>
+
+        <!-- 검색 영역 -->
+        <div class="filter-box">
+          <h3 class="blind">병원 검색 필터</h3>
+
+          <!-- 진료 동물 필터 (checkbox) -->
+          <div class="filter-group checkbox-group">
+            <p>진료 동물</p>
+            <label class="checkbox-btn">
+              <input type="checkbox" class="filter-animal" value="dog" />
+              <span>강아지</span>
+            </label>
+            <label class="checkbox-btn">
+              <input type="checkbox" class="filter-animal" value="cat" />
+              <span>고양이</span>
+            </label>
+            <label class="checkbox-btn">
+              <input type="checkbox" class="filter-animal" value="rabbit" />
+              <span>특수동물</span>
+            </label>
+          </div>
+
+          <!-- 진료 상태 필터 (radio) -->
+          <div class="filter-group radio-group">
+            <p>운영 상태</p>
+            <label class="radio-btn">
+              <input
+                type="radio"
+                name="status"
+                class="filter-status"
+                value="open"
+              />
+              <span>진료중</span>
+            </label>
+            <label class="radio-btn">
+              <input
+                type="radio"
+                name="status"
+                class="filter-status"
+                value="24h"
+              />
+              <span>24시간</span>
+            </label>
+            <label class="radio-btn">
+              <input
+                type="radio"
+                name="status"
+                class="filter-status"
+                value="any"
+                checked
+              />
+              <span>전체</span>
+            </label>
+          </div>
+
+          <!-- 예약 가능 -->
+          <div class="filter-group">
+            <label
+              ><input type="checkbox" id="filter-reservable" /> 예약 가능
+              병원만</label
+            >
+          </div>
+
+          <!-- 거리 -->
+          <div class="filter-group">
+            <p>거리</p>
+            <select id="filter-distance">
+              <option value="all">전체</option>
+              <option value="1">1km 이내</option>
+              <option value="3">3km 이내</option>
+              <option value="5">5km 이내</option>
+            </select>
+          </div>
+
+          <!-- 필터 적용 버튼 -->
+          <button id="filterBtn"><i class="fas fa-search"></i> 검색하기</button>
+        </div>
+
+        <!-- 병원 리스트 -->
+        <div id="hospital-list">
+          <div
+            class="hospital"
+            data-animal="dog"
+            data-status="open"
+            data-reservable="true"
+            data-distance="1"
+            data-name="퍼피케어 동물병원"
+          >
+            🐶 퍼피케어 동물병원 (1km / 진료중 / 예약 가능)
+          </div>
+          <div
+            class="hospital"
+            data-animal="rabbit"
+            data-status="open"
+            data-reservable="false"
+            data-distance="3"
+            data-name="토순이병원"
+          >
+            🐰 토순이병원 (3km / 진료중 / 예약 불가)
+          </div>
+          <div
+            class="hospital"
+            data-animal="cat"
+            data-status="24h"
+            data-reservable="true"
+            data-distance="5"
+            data-name="고양이전문병원"
+          >
+            🐱 고양이전문병원 (5km / 24시간 / 예약 가능)
+          </div>
+          <div
+            class="hospital"
+            data-animal="rabbit"
+            data-status="closed"
+            data-reservable="true"
+            data-distance="5"
+            data-name="파충류클리닉"
+          >
+            🐍 파충류클리닉 (5km / 마감 / 예약 가능)
+          </div>
+        </div>
+
+        <!--상단 검색-->
+        <div class="search-flex">
+          <div class="search-box">
+            <div class="search-box_img">
+              <img src="image/m_logo.png" alt="" />
+            </div>
+            <input type="text" placeholder="동물병원 위치 찾기" />
+            <button onclick="location.href='search_map.html'">
+              <i class="fas fa-search"></i><span class="blind">검색</span>
+            </button>
+            <span class="search-flex_btn"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+          </div>
+        </div>
+        <!--//상단 검색-->
+      </div>
+    </header>
+
+    <!-- 이미지 슬라이드 -->
+    <div class="slider">
+      <ul class="slick-list">
+        <li>
+          <a href=""><img src="image/event_bn1.jpg" alt="slide1" /></a>
+        </li>
+        <li>
+          <a href=""><img src="image/event_bn2.jpg" alt="slide2" /></a>
+        </li>
+        <li>
+          <a href=""><img src="image/event_bn3.jpg" alt="slide3" /></a>
+        </li>
+      </ul>
+    </div>
+    <div class="bg">
+      <main>
+        <!-- 전문분야 -->
+        <nav class="specialty">
+          <h3>전문분야</h3>
+          <div class="category-list">
+            <div class="category active" data-type="all">
+              <i class="fas fa-paw"></i> <span>추천</span>
+            </div>
+            <div class="category" data-type="dog">
+              <i class="fas fa-dog"></i> <span>강아지</span>
+            </div>
+            <div class="category" data-type="cat">
+              <i class="fas fa-cat"></i><span>고양이</span>
+            </div>
+            <div class="category" data-type="special">
+              <i class="fas fa-frog"></i><span>특수동물</span>
+            </div>
+          </div>
+        </nav>
+
+        <!-- 병원 리스트 -->
+        <div class="hospital-list card_style">
+          <!-- 추천 (전체 all) -->
+          <a href="search_map.html">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>스마일 동물병원</h2>
+                <span>0.2Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>강아지 고양이 진료</p>
+                <div class="reservation">
+                  <span>예약가능</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>베스트 펫 케어</h2>
+                <span>0.5Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>야간 진료 가능</p>
+                <div class="reservation">
+                  <span>24시간</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>펫프렌즈 동물병원</h2>
+                <span>0.8Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>예방접종 전문</p>
+                <div class="reservation">
+                  <span>예약가능</span><span class="rese_btn_02">진료마감</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>웰빙 동물의료센터</h2>
+                <span>1.1Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>종합진료</p>
+                <div class="reservation">
+                  <span>응급대기</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>웰빙 동물의료센터</h2>
+                <span>1.1Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>종합진료</p>
+                <div class="reservation">
+                  <span>응급대기</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <a href="">
+            <div class="hospital" data-type="all">
+              <div class="hospital-title">
+                <h2>웰빙 동물의료센터</h2>
+                <span>1.1Km</span>
+              </div>
+              <div class="hospital-sub">
+                <p>종합진료</p>
+                <div class="reservation">
+                  <span>응급대기</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- 추천 더보기 대상 -->
+          <div class="hospital more-all" data-type="all">
+            <div class="hospital-title">
+              <h2>헬로펫 종합병원</h2>
+              <span>1.3Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>종합진료</p>
+              <div class="reservation">
+                <span>응급대기</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+            ㅋ
+          </div>
+          <div class="hospital more-all" data-type="all">
+            <div class="hospital-title">
+              <h2>강북 펫케어</h2>
+              <span>1.5Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>종합진료</p>
+              <div class="reservation">
+                <span>응급대기</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital more-all" data-type="all">
+            <div class="hospital-title">
+              <h2>이웃집 동물병원</h2>
+              <span>1.8Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>일반 진료</p>
+              <div class="hospital-sub">
+                <p>종합진료</p>
+                <div class="reservation">
+                  <span>응급대기</span><span class="rese_btn_01">진료중</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hospital more-all" data-type="all">
+            <div class="hospital-title">
+              <h2>행복 펫클리닉</h2>
+              <span>2.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>고양이 강아지 가능</p>
+              <div class="reservation">
+                <span>응급대기</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 강아지 -->
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>멍멍 케어 동물병원</h2>
+              <span>0.3Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>강아지 전문</p>
+              <div class="reservation">
+                <span>응급대기</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>퍼피웰 병원</h2>
+              <span>0.7Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>예방접종 중심</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>하이펫 동물병원</h2>
+              <span>1.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>소형견 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>러브펫 병원</h2>
+              <span>1.4Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>종합 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>하이펫 동물병원</h2>
+              <span>1.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>소형견 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="dog">
+            <div class="hospital-title">
+              <h2>러브펫 병원</h2>
+              <span>1.4Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>종합 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 고양이 -->
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>행복한 고양이 병원</h2>
+              <span>0.3Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>고양이 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>캣케어 동물병원</h2>
+              <span>0.9Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>고양이 외과 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>냥이동물병원</h2>
+              <span>1.3Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>중성화 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>캣케어 동물병원</h2>
+              <span>0.9Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>고양이 외과 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>냥이동물병원</h2>
+              <span>1.3Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>중성화 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="cat">
+            <div class="hospital-title">
+              <h2>프리미엄 캣클리닉</h2>
+              <span>1.5Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>고양이 피부과</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 특수동물 -->
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>이그조틱 케어 병원</h2>
+              <span>1.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>파충류 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>조류클리닉</h2>
+              <span>1.6Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>앵무새 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>햄스터 헬스 병원</h2>
+              <span>0.9Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>소동물 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>토끼 동물의료센터</h2>
+              <span>2.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>토끼 중점 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>햄스터 헬스 병원</h2>
+              <span>0.9Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>소동물 전문</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+          <div class="hospital" data-type="special">
+            <div class="hospital-title">
+              <h2>토끼 동물의료센터</h2>
+              <span>2.0Km</span>
+            </div>
+            <div class="hospital-sub">
+              <p>토끼 중점 진료</p>
+              <div class="reservation">
+                <span>예약가능</span><span class="rese_btn_01">진료중</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 더보기 버튼 -->
+        <div class="more-btn-wrap" style="display: none">
+          <button id="moreBtn">더보기</button>
+        </div>
+
+        <section>
+          <h2 class="title">수의사 상담</h2>
+          <div class="vet-box">
+            <a href="counseling.html">
+              <img src="image/vet.jpg" alt="수의사 프로필" />
+              <!-- 수의사 이미지 -->
+              <div class="text">
+                <strong>VN 수의사</strong>
+                반려동물 건강 상담하기
+              </div>
+              <div class="icon"><i class="fas fa-chevron-right"></i></div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 커뮤니티 -->
+        <section>
+          <div class="community-header">
+            <h2>커뮤니티</h2>
+            <a href="community.html">더보기</a>
+          </div>
+
+          <div class="community-list">
+            <!-- 카드 1 -->
+            <div class="card">
+              <img src="image/cat1.jpg" alt="고양이" />
+              <div class="card-body">
+                <div class="card-title">
+                  귀여운 고양이 관련 꿀팁 공유합니다!
+                </div>
+                <div class="card-tag"><i class="fas fa-cat"></i>고양이사랑</div>
+                <div class="card-hashtags">
+                  #고양이 #공유 #꿀팁 #귀여워 #순간포착
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="card">
+              <img src="image/dog1.jpg" alt="강아지 훈련" />
+              <div class="card-body">
+                <div class="card-title">강아지 훈련 팁을 알려드립니다!</div>
+                <div class="card-tag">
+                  <i class="fas fa-dog"></i> 강아지아빠
+                </div>
+                <div class="card-hashtags">#강아지 #훈련 #팁 #산책교육</div>
+              </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="card">
+              <img src="image/hamster2.jpg" alt="햄스터" />
+              <div class="card-body">
+                <div class="card-title">
+                  우리집 막내 햄찌의 귀여움을 함께해요!
+                </div>
+                <div class="card-tag">
+                  <i class="fas fa-frog"></i>햄토리중독
+                </div>
+                <div class="card-hashtags">#햄스터 #공감 #순간포착</div>
+              </div>
+            </div>
+
+            <!-- 카드 4 -->
+            <div class="card">
+              <img src="image/dog2.jpg" alt="강아지" />
+              <div class="card-body">
+                <div class="card-title">강아지 훈련 팁을 알려드립니다!</div>
+                <div class="card-tag"><i class="fas fa-dog"></i> 멍아지</div>
+                <div class="card-hashtags">#강아지 #공감 #산책교육 #훈련</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <div class="footer">
+        <h3>JOYURI - WebDesign Portfolio</h3>
+        <address>
+          <span>hecia@naver.com</span>
+        </address>
+        <small>© 2025 웹디자인 포트폴리오. All rights reserved</small>
+      </div>
+    </footer>
+
+    <div class="bottom-nav">
+      <a href="main.html" class="active">
+        <i class="fas fa-home"><span class="blind">홈</span></i>
+      </a>
+      <a href="search_map.html">
+        <i class="fas fa-map-marker-alt"><span class="blind">위치찾기</span></i>
+      </a>
+      <a href="community.html">
+        <i class="fas fa-dog"><span class="blind">커뮤니티</span></i>
+      </a>
+      <a href="mypage.html">
+        <i class="fas fa-user"></i><span class="blind">마이페이지</span>
+      </a>
+    </div>
+    <!-- jQuery + 슬라이드 스크립트 -->
+
+    <script></script>
+  </body>
+</html>

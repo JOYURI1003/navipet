@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaviPet</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+
+    <!-- slick JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+      defer
+    ></script>
+    <script src="js/event.js" defer></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- 맨위로 가기 버튼 -->
+    <button id="goTopBtn" title="맨 위로 이동">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <div class="header">
+      <button class="back-button" onclick="location.href='main.html'">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h1>동물병원 위치 찾기</h1>
+      <button><i class="fas fa-bars"></i></button>
+    </div>
+    <!--상단 검색-->
+    <div class="search-flex">
+      <div class="search-box">
+        <div class="search-box_img">
+          <img src="image/m_logo.png" alt="" />
+        </div>
+        <input type="text" placeholder="동물병원 위치 찾기" />
+        <button onclick="location.href='search_map.html'">
+          <i class="fas fa-search"></i><span class="blind">검색</span>
+        </button>
+        <span class="search-flex_btn"><i class="fa-solid fa-bars"></i></span>
+      </div>
+    </div>
+    <!--//상단 검색-->
+    <div class="bg">
+      <div class="hospital-info">
+        <div class="marker"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="hospital-header">
+          <div class="search-box">
+            <input type="text" placeholder="병원명 검색" />
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div class="hospital-result">
+            <strong>행복한 고양이 동물병원</strong><br />
+            <span class="specialty">고양이 전문</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <section class="map-section">
+          <!-- 지도 iframe 추가 -->
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.489345970925!2d127.1314376!3d37.4488181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357caf5d14f22dbf%3A0x94c9b16e850d19d3!2z6rK96riw64-EIOyEnOyCrOuvuOybkOyKpCDqtazsuZg!5e0!3m2!1sko!2skr!4v1719999999999"
+              width="100%"
+              height="300"
+              style="border: 0; border-radius: 12px; margin-top: 16px"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="buttons">
+            <button class="info-btn">병원 정보</button>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=경기도+성남시+수정구+시민로+215번길+34"
+              target="_blank"
+              class="route-btn"
+              >경로 안내 받기</a
+            >
+            <button class="review-btn">리뷰 보기</button>
+          </div>
+        </section>
+        <!-- 커뮤니티 -->
+        <section class="map-section">
+          <div class="community-header">
+            <h2>인근병원</h2>
+            <a href="">더보기</a>
+          </div>
+
+          <div class="community-list">
+            <!-- 카드 1 -->
+            <div class="card">
+              <img src="image/hospital2.jpg" alt="어울림 동물병원" />
+              <div class="card-body">
+                <div class="hospital-title near">
+                  <h2>어울림 동물병원</h2>
+                  <span>1.3Km</span>
+                </div>
+                <div class="card-hashtags">
+                  서울특별시 송파구 오금로 147 샤인동물메디컬센터
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 2 -->
+            <div class="card">
+              <img src="image/hospital1.jpg" alt="바른걸음 동물병원" />
+              <div class="card-body">
+                <div class="hospital-title near">
+                  <h2>바른걸음 동물병원</h2>
+                  <span>1.0Km</span>
+                </div>
+                <div class="card-hashtags">
+                  서울특별시 노원구 동일로 1014 1층, 2층
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 3 -->
+            <div class="card">
+              <img src="image/hospital3.jpg" alt="서울햇살 동물병원" />
+              <div class="card-body">
+                <div class="hospital-title near">
+                  <h2>서울햇살 동물병원</h2>
+                  <span>1.3Km</span>
+                </div>
+                <div class="card-hashtags">
+                  서울특별시 도봉구 도봉로 578 2층, 2호
+                </div>
+              </div>
+            </div>
+
+            <!-- 카드 4 -->
+            <div class="card">
+              <img src="image/hospital4.jpg" alt="서울햇살 동물병원" />
+              <div class="card-body">
+                <div class="hospital-title near">
+                  <h2>서울햇살 동물병원</h2>
+                  <span>1.4Km</span>
+                </div>
+                <div class="card-hashtags">
+                  서울특별시 강남구 학동로29길 5 3~6층
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <div class="footer">
+        <h3>JOYURI - WebDesign Portfolio</h3>
+        <address>
+          <span>hecia@naver.com</span>
+        </address>
+        <small>© 2025 웹디자인 포트폴리오. All rights reserved</small>
+      </div>
+    </footer>
+    <div class="bottom-nav">
+      <a href="main.html">
+        <i class="fas fa-home"><span class="blind">홈</span></i>
+      </a>
+      <a href="search_map.html" class="active">
+        <i class="fas fa-map-marker-alt"><span class="blind">위치찾기</span></i>
+      </a>
+      <a href="community.html">
+        <i class="fas fa-dog"><span class="blind">커뮤니티</span></i>
+      </a>
+      <a href="mypage.html">
+        <i class="fas fa-user"></i><span class="blind">마이페이지</span>
+      </a>
+    </div>
+  </body>
+</html>

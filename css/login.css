@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+.login_logo img {
+  height: 80px;
+}
+
+.login-box {
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-header .icon {
+  font-size: 40px;
+  color: var(--color-blue-light);
+  margin-bottom: 10px;
+}
+
+.login-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.login-header p {
+  font-size: 14px;
+  color: var(--color-sub);
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: var(--color-bg);
+}
+
+.input-box i {
+  margin-right: 8px;
+  color: var(--color-sub);
+}
+
+.input-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1.4rem;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.options a {
+  color: var(--color-blue-dark);
+  font-size: 1.4rem;
+}
+
+.login-btn {
+  width: 100%;
+  background: var(--color-blue-light);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.divider {
+  text-align: center;
+  color: var(--color-sub);
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.social-login button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-light);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form > label {
+  font-size: 1.6rem;
+  padding-bottom: 6px;
+  display: block;
+}
+.login-form i,
+.social-login i {
+  font-size: 1.4rem;
+}
+.options > label {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.social-login .google {
+  background: white;
+  color: var(--color-sub);
+}
+
+.social-login .apple {
+  background: #000;
+  color: #fff;
+}
+
+.social-login .kakao {
+  background: #fee500;
+  color: #3c1e1e;
+  border: none;
+}
+
+.social-login i {
+  margin-right: 8px;
+}
+.use_id::after {
+  content: "ㅣ";
+  color: var(--color-blue-dark);
+}
+.join_go {
+  text-align: center;
+  font-size: 1.4rem;
+  display: block;
+  padding-top: 16px;
+}
+.join_go a {
+  color: var(--color-blue-dark);
+  font-size: 1.4rem;
+  font-weight: bold;
+}

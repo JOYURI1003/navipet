@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>NaviPet</title>
+  </head>
+  <style>
+    .intro {
+      position: relative;
+      height: auto;
+      width: 100%;
+      min-height: 1000px;
+      background-color: var(--color-blue-light);
+      animation: fadeOut 0.7s ease 0.3s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        background-color: transparent;
+      }
+    }
+
+    .intro img {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 140px;
+    }
+  </style>
+  <body>
+    <div class="intro">
+      <img src="image/intro_img.png" alt="" />
+    </div>
+    <script>
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000); //
+    </script>
+  </body>
+</html>

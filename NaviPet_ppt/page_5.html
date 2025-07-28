@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>핵심 기능 2: 표준화된 병원 상세 정보</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>
+        body {width: 1280px; min-height: 804px; font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F7F7F7;}
+        .slide-container {
+            width: 1280px;
+            min-height: 804px;
+            position: relative;
+            
+            background-color: white;
+        }
+        .title-bar {
+            background: linear-gradient(90deg, #5980F4 0%, #5980F4 70%, rgba(255, 255, 255, 0) 100%);
+        }
+        .info-card {
+            border-left: 4px solid #4DD0E1;
+            transition: all 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .icon-circle {
+            background-color: #5980F4;
+        }
+        .info-box {
+            background-color: rgba(89, 128, 244, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container shadow-xl mx-auto p-10">
+<!-- Title Section -->
+<div class="title-bar py-4 px-8 rounded-lg mb-8">
+<h1 class="text-4xl font-bold text-white">핵심 기능 2: 표준화된 병원 상세 정보</h1>
+<p class="text-white text-xl mt-2">병원 선택에 필요한 핵심 정보를 표준화하여 제공</p>
+</div>
+<!-- Main Content -->
+<div class="flex">
+<!-- Left Column - Information Categories -->
+<div class="w-2/3 pr-6">
+<div class="mb-6">
+<h3 class="text-xl font-bold text-gray-800 mb-2">
+<i class="fas fa-info-circle text-[#4DD0E1] mr-2"></i>
+                        표준화된 정보 제공의 중요성
+                    </h3>
+<p class="text-gray-700">NaviPet은 병원마다 제각각이던 정보 포맷을 표준화하여 일관성 있고 신뢰도 높은 데이터를 제공합니다. 보호자는 앱 내에서 병원 선택에 필요한 모든 정보를 손쉽게 비교하고 검토할 수 있습니다.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Info Category 1 -->
+<div class="info-card bg-white rounded-lg p-4 shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle rounded-full p-3 mr-3">
+<i class="fas fa-hospital text-xl text-white"></i>
+</div>
+<h4 class="text-lg font-bold text-gray-800">기본 정보</h4>
+</div>
+<p class="text-gray-700">병원명, 주소, 연락처, 홈페이지 등 기본적인 정보를 한눈에 확인할 수 있습니다.</p>
+</div>
+<!-- Info Category 2 -->
+<div class="info-card bg-white rounded-lg p-4 shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle rounded-full p-3 mr-3">
+<i class="fas fa-clock text-xl text-white"></i>
+</div>
+<h4 class="text-lg font-bold text-gray-800">운영 시간</h4>
+</div>
+<p class="text-gray-700">요일별 진료 시간, 점심시간, 휴진일 등 상세한 운영 시간 정보를 제공합니다.</p>
+</div>
+<!-- Info Category 3 -->
+<div class="info-card bg-white rounded-lg p-4 shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle rounded-full p-3 mr-3">
+<i class="fas fa-stethoscope text-xl text-white"></i>
+</div>
+<h4 class="text-lg font-bold text-gray-800">진료 과목</h4>
+</div>
+<p class="text-gray-700">각 병원이 전문으로 하는 진료 분야를 명확하게 표시하여 반려동물의 증상에 맞는 병원을 선택할 수 있습니다.</p>
+</div>
+<!-- Info Category 4 -->
+<div class="info-card bg-white rounded-lg p-4 shadow-md">
+<div class="flex items-center mb-3">
+<div class="icon-circle rounded-full p-3 mr-3">
+<i class="fas fa-user-md text-xl text-white"></i>
+</div>
+<h4 class="text-lg font-bold text-gray-800">의료진 정보</h4>
+</div>
+<p class="text-gray-700">수의사의 프로필, 전문 분야, 경력 등을 확인하여 신뢰할 수 있는 의료진을 선택할 수 있습니다.</p>
+</div>
+<!-- Info Category 5 -->
+<div class="info-card bg-white rounded-lg p-4 shadow-md col-span-2">
+<div class="flex items-center mb-3">
+<div class="icon-circle rounded-full p-3 mr-3">
+<i class="fas fa-coins text-xl text-white"></i>
+</div>
+<h4 class="text-lg font-bold text-gray-800">예상 진료비</h4>
+</div>
+<p class="text-gray-700">주요 진료 항목에 대한 예상 비용을 안내하여 투명성을 확보합니다. 보호자의 80.7%가 진료비에 부담을 느끼는 상황에서, 비용 정보의 투명한 제공은 병원 선택에 중요한 기준이 됩니다.</p>
+</div>
+</div>
+</div>
+<!-- Right Column - Visual Representation -->
+<div class="w-1/3">
+<div class="bg-gray-50 rounded-lg overflow-hidden shadow-md mb-4">
+<img alt="동물병원 내부" class="w-full h-48 object-cover" src="https://picture-search.skywork.ai/aippt/image/sheet/3227c41530b321bb8b498862b665e3d1.jpg"/>
+<div class="p-4">
+<h4 class="text-lg font-bold text-gray-800 mb-2">표준화된 정보로 쉽고 빠른 비교</h4>
+<p class="text-gray-700">NaviPet은 모든 병원 정보를 동일한 형식으로 표준화하여 사용자가 쉽게 비교하고 최적의 선택을 할 수 있도록 돕습니다.</p>
+</div>
+</div>
+<div class="info-box border-l-4 border-[#5980F4] p-4 rounded">
+<h4 class="text-lg font-bold text-[#3A5BBF] mb-2">
+<i class="fas fa-lightbulb text-[#4DD0E1] mr-2"></i>
+                        정보 표준화의 효과
+                    </h4>
+<ul class="text-gray-700 list-disc pl-5 space-y-2">
+<li>병원 간 직접적인 비교 가능</li>
+<li>의사결정 시간 단축</li>
+<li>정보의 신뢰성 향상</li>
+<li>투명한 정보 제공으로 사용자 만족도 증가</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Slide Number -->
+<div class="absolute bottom-4 right-10">
+<span class="text-gray-500">5 / 12</span>
+</div>
+</div>
+</body></html>
